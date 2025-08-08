@@ -1,0 +1,78 @@
+:root {
+  --purple: rgb(232 121 249);
+  --blue: rgb(96 165 250);
+  --green: rgb(94 234 212);
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+}
+
+/* Rainbow container covers full screen */
+.rainbow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.rainbow {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100vh;
+  transform: rotate(10deg);
+  transform-origin: top right;
+  animation: slide 45s linear infinite;
+  box-shadow:
+    -130px 0 80px 40px white,
+    -50px 0 50px 25px var(--purple),
+    0 0 50px 25px var(--blue),
+    50px 0 50px 25px var(--green),
+    130px 0 80px 40px white;
+}
+
+/* Assign random colors to each rainbow line */
+.rainbow:nth-child(1) { animation-delay: 0s; }
+.rainbow:nth-child(2) { animation-delay: -1.8s; box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px var(--green), 0 0 50px 25px var(--purple), 50px 0 50px 25px var(--blue), 130px 0 80px 40px white; }
+.rainbow:nth-child(3) { animation-delay: -3.6s; box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px var(--blue), 0 0 50px 25px var(--green), 50px 0 50px 25px var(--purple), 130px 0 80px 40px white; }
+/* Repeat for all 25, alternating colors */
+.rainbow:nth-child(4) { animation-delay: -5.4s; }
+.rainbow:nth-child(5) { animation-delay: -7.2s; }
+/* ... you can repeat pattern until nth-child(25) */
+
+/* White glow edges */
+.h {
+  box-shadow: 0 0 50vh 40vh white;
+  width: 100vw;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.v {
+  box-shadow: 0 0 35vw 25vw white;
+  width: 0;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+@keyframes slide {
+  from { right: -25vw; }
+  to { right: 125vw; }
+}
+
+/* Gallery image hover effect */
+.gallery-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.03);
+}
