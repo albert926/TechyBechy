@@ -78,3 +78,9 @@ body {
 .gallery-img:hover {
   transform: scale(1.03);
 }
+
+/* Auto-crop carousel images */
+.carousel-item img {
+  height: 300px;       /* fixed height for every slide */
+  object-fit: cover;   /* crop & fill without distortion */
+}
