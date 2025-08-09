@@ -1,97 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Techy Bechy Minecraft</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Make hero carousel images nicely cropped and equal height */
+    .hero-carousel .carousel-item img {
+      height: 30vh;           /* same as your previous max-height */
+      width: 100%;
+      object-fit: cover;      /* crop instead of squish */
+    }
+  </style>
 </head>
-
-<main>
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">Welcome To Techy Bechy 🎮</h1>
-    <div class="col-lg-6 mx-auto">
-      
-      <p class="lead mb-4">
-        Welcome to Techy Bechy — a friendly, home-hosted Minecraft server for both Java and Bedrock players! 🌍<br>
-        Whether you’re here to build, explore, or just hang out, we’re all about good vibes and creative fun.<br>
-        Join our Discord for voice chat, real-time game updates, and an awesome community:<br>
-        <a href="https://discord.gg/sKnqz6Jke5" target="_blank">discord.gg/sKnqz6Jke5</a>.<br>
-        Java: mcjva.alberttalkstech.com | Bedrock: bedrock.alberttalkstech.com
-      </p>
-
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-      </div>
-    </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
-      <div class="container px-5">
-        <img src="https://getbootstrap.com/docs/5.3/assets/img/bootstrap-docs.png"
-          class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
-      </div>
-    </div>
-  </div>
-</main>
-
 <body class="bg-dark text-white">
+  <main>
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold text-body-emphasis">Welcome To Techy Bechy 🎮</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          Welcome to Techy Bechy — a friendly, home-hosted Minecraft server for both Java
+          and Bedrock players! 🌍 Whether you’re here to build, explore, or just hang out,
+          we’re all about good vibes and creative fun. Join our Discord for voice chat,
+          real-time game updates, and an awesome community:
+          <a href="https://discord.gg/sKnqz6Jke5" target="_blank">discord.gg/sKnqz6Jke5</a>.
+          Java: mcjva.alberttalkstech.com | Bedrock: bedrock.alberttalkstech.com
+        </p>
 
-  <div class="lines">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-
-
-  <div class="container py-5">
-
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6"> <!-- smaller width -->
-        <div id="mcCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-
-          <!-- Indicators -->
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-              aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-
-          <!-- Slides -->
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="OneBlock.png" class="d-block w-100" alt="Oneblock Screenshot">
-            </div>
-            <div class="carousel-item">
-              <img src="SMP.png" class="d-block w-100" alt="SMP Screenshot">
-            </div>
-            <div class="carousel-item">
-              <img src="Parkour.png" class="d-block w-100" alt="Parkour Screenshot">
-            </div>
-          </div>
-
-          <!-- Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#mcCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#mcCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
         </div>
       </div>
+
+      <!-- HERO IMAGE AREA -> replaced with your carousel -->
+      <div class="overflow-hidden hero-carousel">
+        <div class="container px-5">
+          <div id="mcCarousel" class="carousel slide shadow-lg border rounded-3" data-bs-ride="carousel" data-bs-interval="3000">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="OneBlock.png" alt="Oneblock Screenshot">
+              </div>
+              <div class="carousel-item">
+                <img src="SMP.png" alt="SMP Screenshot">
+              </div>
+              <div class="carousel-item">
+                <img src="Parkour.png" alt="Parkour Screenshot">
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#mcCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mcCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- /HERO CAROUSEL -->
     </div>
-  </div>
+
+    <!-- If you keep the hero carousel, remove the duplicate carousel below -->
+    <!-- (Deleted your second carousel section to avoid two of them on the page) -->
+
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
