@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Techy Bechy Minecraft</title>
@@ -9,18 +8,19 @@
     /* Make hero carousel images nicely cropped and equal height */
     .hero-carousel .carousel-item img {
       height: 55vh;
-      /* same as your previous max-height */
       width: 100%;
-      object-fit: cover;
-      /* crop instead of squish */
+      object-fit: cover; /* crop instead of squish */
     }
+    /* Give staff section a little space from the hero */
+    #staff { margin-top: 2rem; }
   </style>
 </head>
 
 <body class="bg-dark text-white">
   <main>
     <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold text-body-emphasis">Welcome To Techy Bechy 🎮</h1>
+      <h1 class="display-5 fw-bold text-white">Welcome To Techy Bechy 🎮</h1>
+
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">
           Welcome to Techy Bechy — a friendly, home-hosted Minecraft server for both Java
@@ -37,15 +37,13 @@
         </div>
       </div>
 
-      <!-- HERO IMAGE AREA -> replaced with your carousel -->
+      <!-- HERO IMAGE AREA -> carousel only -->
       <div class="overflow-hidden hero-carousel">
         <div class="container px-5">
-          <div id="mcCarousel" class="carousel slide shadow-lg border rounded-3" data-bs-ride="carousel"
-            data-bs-interval="3000">
+          <div id="mcCarousel" class="carousel slide shadow-lg border rounded-3" data-bs-ride="carousel" data-bs-interval="3000">
             <!-- Indicators -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#mcCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
@@ -62,78 +60,92 @@
                 <img src="Parkour.png" alt="Parkour Screenshot">
               </div>
             </div>
-            <!-- ===== STAFF SECTION ===== -->
-            <section class="container py-5">
-              <h2 class="text-center mb-4">Meet the Staff</h2>
-              <div class="row g-4">
 
-                <!-- OWNER -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="card text-center shadow-sm border-0 h-100">
-                    <div class="card-body">
-                      <img src="https://crafatar.com/renders/body/b89afc9d-4f40-4568-87ce-c091280009db?overlay"
-                        alt="AlbertTalksTech Skin" width="128" height="256">
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#mcCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mcCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div> <!-- /#mcCarousel -->
+        </div> <!-- /.container -->
+      </div> <!-- /.hero-carousel -->
+    </div> <!-- /.px-4 -->
 
-                      <h5 class="card-title mb-1">AlbertTalksTech</h5>
-                      <span class="badge mb-2" style="background-color:#FFAA00; font-weight:bold;">[OWNER]</span>
-                      <p class="card-text small text-muted">
-                        Keeps the lights on, writes code, manages the server, and breaks everything at 3 AM.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+    <!-- ===== STAFF SECTION (moved OUTSIDE the carousel) ===== -->
+    <section id="staff" class="container py-5">
+      <h2 class="text-center mb-4">Meet the Staff</h2>
+      <div class="row g-4">
 
-                <!-- ADMIN -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="card text-center shadow-sm border-0 h-100">
-                    <div class="card-body">
-                      <img src="https://crafatar.com/renders/body/7c3646b2-ca51-4c60-af3d-f8f159784422?overlay"
-                        alt="Sweatierseal Skin" width="128" height="256">
-                      <h5 class="card-title mb-1">Sweatierseal707</h5>
-                      <span class="badge mb-2" style="background-color:#FF5555; font-weight:bold;">[ADMIN]</span>
-                      <p class="card-text small text-muted">
-                        Community mod. Answers questions, bonks griefers.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="card text-center shadow-sm border-0 h-100">
-                    <div class="card-body">
-                      <img src="https://crafatar.com/renders/body/e1622d16-d35b-4d1a-a350-2f079af3c7c1?overlay"
-                        alt="Sweatierseal Skin" width="128" height="256">
-                      <h5 class="card-title mb-1">Enigmascrave</h5>
-                      <span class="badge mb-2" style="background-color:#FF5555; font-weight:bold;">[ADMIN]</span>
-                      <p class="card-text small text-muted">
-                        Community mod. Answers questions, bonks griefers.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        <!-- OWNER -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card text-center shadow-sm border-0 h-100">
+            <div class="card-body">
+              <img src="https://crafatar.com/renders/body/b89afc9d-4f40-4568-87ce-c091280009db?overlay"
+                   alt="AlbertTalksTech Skin" width="128" height="256">
+              <h5 class="card-title mb-1">AlbertTalksTech</h5>
+              <span class="badge mb-2" style="background-color:#FFAA00; font-weight:bold;">[OWNER]</span>
+              <p class="card-text small text-muted">
+                Keeps the lights on, writes code, manages the server, and breaks everything at 3 AM.
+              </p>
+            </div>
+          </div>
+        </div>
 
-                <!-- STAFF -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="card text-center shadow-sm border-0 h-100">
-                    <div class="card-body">
-                      <img src="https://crafatar.com/renders/body/60eb4897-87c6-4d55-8c3f-83a2e8b1f1c0?overlay" alt="Staff Skin" width="128"
-                        height="256">
-                      <h5 class="card-title mb-1">CreeperGamer105</h5>
-                      <span class="badge mb-2" style="background-color:#55FFFF; font-weight:bold;">[STAFF]</span>
-                      <p class="card-text small text-muted">
-                        Keeps order and makes sure everyone’s having a great time.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        <!-- ADMIN -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card text-center shadow-sm border-0 h-100">
+            <div class="card-body">
+              <img src="https://crafatar.com/renders/body/7c3646b2-ca51-4c60-af3d-f8f159784422?overlay"
+                   alt="Sweatierseal Skin" width="128" height="256">
+              <h5 class="card-title mb-1">Sweatierseal707</h5>
+              <span class="badge mb-2" style="background-color:#FF5555; font-weight:bold;">[ADMIN]</span>
+              <p class="card-text small text-muted">
+                Community mod. Answers questions, bonks griefers.
+              </p>
+            </div>
+          </div>
+        </div>
 
-              </div>
-            </section>
+        <!-- ADMIN -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card text-center shadow-sm border-0 h-100">
+            <div class="card-body">
+              <img src="https://crafatar.com/renders/body/e1622d16-d35b-4d1a-a350-2f079af3c7c1?overlay"
+                   alt="Enigmascrave Skin" width="128" height="256">
+              <h5 class="card-title mb-1">Enigmascrave</h5>
+              <span class="badge mb-2" style="background-color:#FF5555; font-weight:bold;">[ADMIN]</span>
+              <p class="card-text small text-muted">
+                Community mod. Answers questions, bonks griefers.
+              </p>
+            </div>
+          </div>
+        </div>
 
+        <!-- STAFF -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card text-center shadow-sm border-0 h-100">
+            <div class="card-body">
+              <img src="https://crafatar.com/renders/body/60eb4897-87c6-4d55-8c3f-83a2e8b1f1c0?overlay"
+                   alt="CreeperGamer105 Skin" width="128" height="256">
+              <h5 class="card-title mb-1">CreeperGamer105</h5>
+              <span class="badge mb-2" style="background-color:#55FFFF; font-weight:bold;">[STAFF]</span>
+              <p class="card-text small text-muted">
+                Keeps order and makes sure everyone’s having a great time.
+              </p>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </section>
+    <!-- ===== /STAFF SECTION ===== -->
 
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
