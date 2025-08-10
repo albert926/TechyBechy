@@ -144,3 +144,13 @@ a.link-light:hover { text-decoration: underline; }
 
 /* Modal text (Bootstrap modal uses light theme by default) */
 .modal-content { color:#111; }
+
+.service {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: .75rem;
+  padding: 1.25rem;
+  height: 100%;
+}
+.service h3 { margin:.5rem 0 .5rem; color:#fff; }
+.service p  { margin:0; color:#c9c9c9; }
