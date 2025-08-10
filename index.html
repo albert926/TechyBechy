@@ -183,6 +183,40 @@
 
     </section>
 
+    <!-- MAP SECTION -->
+    <div class="container my-5 text-center">
+      <h2 class="mb-3">In-Game Map</h2>
+      <p class="text-muted">Click the map or button below to explore</p>
+
+      <!-- Clickable Map -->
+      <a href="https://map.alberttalkstech.com/#world:114:149:110:49:-0.17:0:0:0:perspective" target="_blank" class="d-inline-block map-link">
+        <img src="bluemap.png" alt="In-Game Map" class="map-image">
+      </a>
+
+      <!-- Button -->
+      <div class="mt-3">
+        <a href="https://map.alberttalkstech.com/#world:114:149:110:49:-0.17:0:0:0:perspective" target="_blank" class="btn btn-primary btn-lg">
+          Open Map
+        </a>
+      </div>
+    </div>
+
+    <style>
+      /* Frame + hover effect for map */
+      .map-image {
+        max-width: 100%;
+        border: 4px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .map-image:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+
 
     <!-- STAFF -->
     <section id="staff" class="container py-5">
