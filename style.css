@@ -4,7 +4,8 @@
   box-sizing: border-box !important;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -52,20 +53,64 @@ body {
 }
 
 /* Custom colors & delays */
-.line:nth-child(1)::after { background: linear-gradient(to bottom, transparent 0%, #FF4500 75%, #FF4500 100%); animation-delay: 0.5s; }
-.line:nth-child(2)::after { background: linear-gradient(to bottom, transparent 0%, #32CD32 75%, #32CD32 100%); animation-delay: 1s; }
-.line:nth-child(3)::after { background: linear-gradient(to bottom, transparent 0%, #1E90FF 75%, #1E90FF 100%); animation-delay: 1.5s; }
-.line:nth-child(4)::after { background: linear-gradient(to bottom, transparent 0%, #FFD700 75%, #FFD700 100%); animation-delay: 2s; }
-.line:nth-child(5)::after { background: linear-gradient(to bottom, transparent 0%, #8A2BE2 75%, #8A2BE2 100%); animation-delay: 2.5s; }
-.line:nth-child(6)::after { background: linear-gradient(to bottom, transparent 0%, #20B2AA 75%, #20B2AA 100%); animation-delay: 3s; }
-.line:nth-child(7)::after { background: linear-gradient(to bottom, transparent 0%, #DC143C 75%, #DC143C 100%); animation-delay: 3.5s; }
-.line:nth-child(8)::after { background: linear-gradient(to bottom, transparent 0%, #00FA9A 75%, #00FA9A 100%); animation-delay: 4s; }
-.line:nth-child(9)::after { background: linear-gradient(to bottom, transparent 0%, #FF1493 75%, #FF1493 100%); animation-delay: 4.5s; }
-.line:nth-child(10)::after { background: linear-gradient(to bottom, transparent 0%, #00BFFF 75%, #00BFFF 100%); animation-delay: 5s; }
+.line:nth-child(1)::after {
+  background: linear-gradient(to bottom, transparent 0%, #FF4500 75%, #FF4500 100%);
+  animation-delay: 0.5s;
+}
+
+.line:nth-child(2)::after {
+  background: linear-gradient(to bottom, transparent 0%, #32CD32 75%, #32CD32 100%);
+  animation-delay: 1s;
+}
+
+.line:nth-child(3)::after {
+  background: linear-gradient(to bottom, transparent 0%, #1E90FF 75%, #1E90FF 100%);
+  animation-delay: 1.5s;
+}
+
+.line:nth-child(4)::after {
+  background: linear-gradient(to bottom, transparent 0%, #FFD700 75%, #FFD700 100%);
+  animation-delay: 2s;
+}
+
+.line:nth-child(5)::after {
+  background: linear-gradient(to bottom, transparent 0%, #8A2BE2 75%, #8A2BE2 100%);
+  animation-delay: 2.5s;
+}
+
+.line:nth-child(6)::after {
+  background: linear-gradient(to bottom, transparent 0%, #20B2AA 75%, #20B2AA 100%);
+  animation-delay: 3s;
+}
+
+.line:nth-child(7)::after {
+  background: linear-gradient(to bottom, transparent 0%, #DC143C 75%, #DC143C 100%);
+  animation-delay: 3.5s;
+}
+
+.line:nth-child(8)::after {
+  background: linear-gradient(to bottom, transparent 0%, #00FA9A 75%, #00FA9A 100%);
+  animation-delay: 4s;
+}
+
+.line:nth-child(9)::after {
+  background: linear-gradient(to bottom, transparent 0%, #FF1493 75%, #FF1493 100%);
+  animation-delay: 4.5s;
+}
+
+.line:nth-child(10)::after {
+  background: linear-gradient(to bottom, transparent 0%, #00BFFF 75%, #00BFFF 100%);
+  animation-delay: 5s;
+}
 
 @keyframes drop {
-  0% { top: -50%; }
-  100% { top: 110%; }
+  0% {
+    top: -50%;
+  }
+
+  100% {
+    top: 110%;
+  }
 }
 
 /* Gallery hover effect */
@@ -73,23 +118,30 @@ body {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .gallery-img:hover {
   transform: scale(1.03);
 }
 
 /* Auto-crop carousel images */
 .carousel-item img {
-  height: 300px;       /* fixed height for every slide */
-  object-fit: cover;   /* crop & fill without distortion */
+  height: 300px;
+  /* fixed height for every slide */
+  object-fit: cover;
+  /* crop & fill without distortion */
 }
 
 /* --- Staff Page Styles --- */
-:root{
-  --bg:#111827;           /* page bg */
-  --card:#1f2937;         /* card bg */
-  --text:#e5e7eb;         /* main text */
-  --muted:#9ca3af;        /* secondary text */
-  --ring:rgba(255,255,255,.12);
+:root {
+  --bg: #111827;
+  /* page bg */
+  --card: #1f2937;
+  /* card bg */
+  --text: #e5e7eb;
+  /* main text */
+  --muted: #9ca3af;
+  /* secondary text */
+  --ring: rgba(255, 255, 255, .12);
 }
 
 body.staff {
@@ -103,7 +155,12 @@ body.staff {
   width: 100%;
   object-fit: cover;
   border-radius: 0.75rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+}
+
+a {
+  display: block;
+  text-align: center
 }
 
 /* Cards */
@@ -113,43 +170,82 @@ body.staff {
   border: 1px solid var(--ring);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
 }
+
 .staff-card.card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
-  border-color: rgba(255,255,255,.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+  border-color: rgba(255, 255, 255, .2);
 }
 
 /* Avatar */
 .staff-avatar {
-  width: 96px; height: 96px;
+  width: 96px;
+  height: 96px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--ring);
-  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
 }
 
 /* Role badges */
-.role-badge { font-size: .75rem; }
-.badge-owner    { background:#2563eb; } /* blue */
-.badge-admin    { background:#ef4444; } /* red */
-.badge-mod      { background:#f59e0b; } /* amber */
-.badge-helper   { background:#06b6d4; } /* cyan */
-.badge-dev      { background:#22c55e; } /* green */
+.role-badge {
+  font-size: .75rem;
+}
+
+.badge-owner {
+  background: #2563eb;
+}
+
+/* blue */
+.badge-admin {
+  background: #ef4444;
+}
+
+/* red */
+.badge-mod {
+  background: #f59e0b;
+}
+
+/* amber */
+.badge-helper {
+  background: #06b6d4;
+}
+
+/* cyan */
+.badge-dev {
+  background: #22c55e;
+}
+
+/* green */
 
 /* Links */
-a.link-light { text-decoration: none; }
-a.link-light:hover { text-decoration: underline; }
+a.link-light {
+  text-decoration: none;
+}
+
+a.link-light:hover {
+  text-decoration: underline;
+}
 
 /* Modal text (Bootstrap modal uses light theme by default) */
-.modal-content { color:#111; }
+.modal-content {
+  color: #111;
+}
 
 .service {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: .75rem;
   padding: 1.25rem;
   height: 100%;
 }
-.service h3 { margin:.5rem 0 .5rem; color:#fff; }
-.service p  { margin:0; color:#c9c9c9; }
 
+.service h3 {
+  margin: .5rem 0 .5rem;
+  color: #fff;
+}
+
+.service p {
+  margin: 0;
+  color: #c9c9c9;
+}
