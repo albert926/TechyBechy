@@ -12,6 +12,25 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
     .corner-back { position: fixed; top: 1rem; right: 1rem; }
+
+    /* --- reveal animation --- */
+    #ip-cards {
+      display: none;           /* hidden until verified */
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .45s ease, transform .45s ease;
+      will-change: opacity, transform;
+    }
+    #ip-cards.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-glow { animation: glow .9s ease; }
+    @keyframes glow {
+      0%   { box-shadow: 0 0 0 rgba(255,255,255,0); }
+      40%  { box-shadow: 0 0 24px rgba(255,255,255,.25); }
+      100% { box-shadow: 0 0 0 rgba(255,255,255,0); }
+    }
   </style>
 </head>
 <body class="bg-dark text-white">
@@ -29,7 +48,7 @@
 
     <!-- Turnstile (visible) -->
     <div class="d-flex justify-content-center mb-3">
-      <div class="cf-challenge"
+      <div id="cfGate" class="cf-challenge"
            data-sitekey="0x4AAAAAABrnFu4lqFjDgydq"
            data-callback="sendToken"
            data-theme="dark"
@@ -40,7 +59,7 @@
     <div id="verifyMsg" class="text-center text-warning mb-4" style="display:none;"></div>
 
     <!-- Hidden until verified -->
-    <div id="ip-cards" style="display:none;">
+    <div id="ip-cards">
       <div class="row g-4 justify-content-center">
         <!-- Java -->
         <div class="col-md-6 col-lg-5">
@@ -129,7 +148,20 @@
       .then(r => r.json())
       .then(data => {
         if (data.success === true) {
-          document.getElementById('ip-cards').style.display = 'block';
+          // Hide the Turnstile widget
+          const gate = document.getElementById('cfGate');
+          if (gate) gate.style.display = 'none';
+
+          // Animate in the cards
+          const cards = document.getElementById('ip-cards');
+          cards.style.display = 'block';       // reveal in layout
+          requestAnimationFrame(() => {        // ensure transition triggers
+            cards.classList.add('revealed');
+            document.querySelectorAll('#ip-cards .card').forEach(c => c.classList.add('reveal-glow'));
+            setTimeout(() => {
+              document.querySelectorAll('#ip-cards .card').forEach(c => c.classList.remove('reveal-glow'));
+            }, 1000);
+          });
         } else {
           msg.textContent = 'Verification failed. Please try again.';
           msg.style.display = 'block';
