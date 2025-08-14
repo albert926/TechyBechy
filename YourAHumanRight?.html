@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Totally-Real Human Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    :root { --card:#111; --ink:#fff; --muted:#9aa3af; --ok:#22c55e; }
+    body { margin:0; font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#0b0d12; color:var(--ink); }
+    .wrap { display:grid; place-items:center; min-height:100vh; padding:24px; }
+    .card { background:var(--card); border:1px solid #222; border-radius:18px; padding:22px; max-width:560px; width:100%; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+    .title { display:flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.15rem; }
+    .title .spark { font-size:1.3rem; }
+    .muted { color:var(--muted); margin:.25rem 0 1rem; }
+    .result { margin-top:1rem; padding:12px; background:#0f172a; border:1px dashed #334155; border-radius:12px; word-break:break-all; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .confetti { position:fixed; inset:0; pointer-events:none; display:none; }
+    .tag { display:inline-block; background:#111827; border:1px solid #1f2937; padding:.15rem .5rem; border-radius:999px; font-size:.8rem; color:#9ca3af; margin-left:.4rem;}
+    .btn { margin-top:10px; border:1px solid #334155; background:#0b1220; color:#d1d5db; border-radius:10px; padding:.55rem .8rem; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <canvas id="confetti" class="confetti"></canvas>
+  <div class="wrap">
+    <div class="card">
+      <div class="title">
+        <span class="spark">✨</span> Turnstile: Are you a human?
+        <span class="tag">demo</span>
+      </div>
+      <p class="muted">Prove you’re not a toaster. If you pass, we’ll award you one (1) internet point.</p>
+
+      <!-- Turnstile widget -->
+      <div
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAABrnXdx3_feSPJNj"
+        data-callback="onTurnstileOK"
+        data-theme="dark">
+      </div>
+
+      <div id="result" class="result" hidden>awaiting verdict…</div>
+      <button id="btnReset" class="btn" hidden onclick="resetWidget()">Try again (for science)</button>
+    </div>
+  </div>
+
+  <script>
+    // silly confetti
+    const c = document.getElementById('confetti');
+    const ctx = c.getContext('2d');
+    function confetti() {
+      c.width = innerWidth; c.height = innerHeight; c.style.display = 'block';
+      const bits = Array.from({length: 150}, () => ({
+        x: Math.random()*c.width, y: -20 - Math.random()*200,
+        r: 2+Math.random()*4, v: 2+Math.random()*4, w: (Math.random()-.5)*2, a: Math.random()*Math.PI
+      }));
+      let t = 0;
+      (function loop(){
+        ctx.clearRect(0,0,c.width,c.height);
+        bits.forEach(b=>{
+          b.y += b.v; b.x += Math.sin((t+b.a)/10)*b.w; 
+          ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+          ctx.fill(); 
+        });
+        t++; if (t<180) requestAnimationFrame(loop); else c.style.display='none';
+      })();
+    }
+
+    // Called by Turnstile upon success
+    function onTurnstileOK(token) {
+      const el = document.getElementById('result');
+      el.hidden = false;
+      el.innerHTML = "✅ You look extremely human. Token:<br><code>"+ token +"</code><br><br><strong>Status:</strong> Certified Carbon-Based Lifeform™";
+      document.getElementById('btnReset').hidden = false;
+      confetti();
+    }
+
+    // Optional: reset the widget to let people “play again”
+    function resetWidget() {
+      try { turnstile.reset(); } catch (e) {}
+      const el = document.getElementById('result');
+      el.hidden = true; el.textContent = '';
+      document.getElementById('btnReset').hidden = true;
+    }
+  </script>
+</body>
+</html>
