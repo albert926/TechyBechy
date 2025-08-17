@@ -7,16 +7,71 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     :root { --card:#111; --ink:#fff; --muted:#9aa3af; --ok:#22c55e; }
-    body { margin:0; font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#0b0d12; color:var(--ink); }
-    .wrap { display:grid; place-items:center; min-height:100vh; padding:24px; }
-    .card { background:var(--card); border:1px solid #222; border-radius:18px; padding:22px; max-width:560px; width:100%; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    .title { display:flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.15rem; }
+    body {
+      margin:0;
+      font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:#0b0d12;
+      color:var(--ink);
+    }
+    .wrap {
+      display:grid;
+      place-items:center;
+      min-height:100vh;
+      padding:24px;
+    }
+    .card {
+      background:var(--card);
+      border:1px solid #222;
+      border-radius:18px;
+      padding:22px;
+      max-width:560px;
+      width:100%;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .title {
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      font-weight:800;
+      font-size:1.15rem;
+    }
     .title .spark { font-size:1.3rem; }
     .muted { color:var(--muted); margin:.25rem 0 1rem; }
-    .result { margin-top:1rem; padding:12px; background:#0f172a; border:1px dashed #334155; border-radius:12px; word-break:break-all; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .confetti { position:fixed; inset:0; pointer-events:none; display:none; }
-    .tag { display:inline-block; background:#111827; border:1px solid #1f2937; padding:.15rem .5rem; border-radius:999px; font-size:.8rem; color:#9ca3af; margin-left:.4rem;}
-    .btn { margin-top:10px; border:1px solid #334155; background:#0b1220; color:#d1d5db; border-radius:10px; padding:.55rem .8rem; cursor:pointer; }
+    .result {
+      margin-top:1rem;
+      padding:12px;
+      background:#0f172a;
+      border:1px dashed #334155;
+      border-radius:12px;
+      word-break:break-all;
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .confetti {
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      display:none;
+      z-index:9999;
+    }
+    .tag {
+      display:inline-block;
+      background:#111827;
+      border:1px solid #1f2937;
+      padding:.15rem .5rem;
+      border-radius:999px;
+      font-size:.8rem;
+      color:#9ca3af;
+      margin-left:.4rem;
+    }
+    .btn {
+      margin-top:10px;
+      border:1px solid #334155;
+      background:#0b1220;
+      color:#d1d5db;
+      border-radius:10px;
+      padding:.55rem .8rem;
+      cursor:pointer;
+    }
   </style>
 </head>
 <body>
@@ -43,24 +98,49 @@
   </div>
 
   <script>
-    // silly confetti
     const c = document.getElementById('confetti');
     const ctx = c.getContext('2d');
+
     function confetti() {
-      c.width = innerWidth; c.height = innerHeight; c.style.display = 'block';
+      const dpr = window.devicePixelRatio || 1;
+      c.style.display = 'block';
+      c.width  = Math.ceil(innerWidth * dpr);
+      c.height = Math.ceil(innerHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // draw in CSS pixels
+
+      // choose a slightly off-white color for tiny variance
+      const pickWhite = () => {
+        const n = 240 + Math.floor(Math.random() * 15); // 240–254
+        return `rgba(${n},${n},${n},0.95)`;
+      };
+
       const bits = Array.from({length: 150}, () => ({
-        x: Math.random()*c.width, y: -20 - Math.random()*200,
-        r: 2+Math.random()*4, v: 2+Math.random()*4, w: (Math.random()-.5)*2, a: Math.random()*Math.PI
+        x: Math.random() * innerWidth,
+        y: -20 - Math.random() * 200,
+        r: 2 + Math.random() * 4,
+        v: 2 + Math.random() * 4,
+        w: (Math.random() - .5) * 2,
+        a: Math.random() * Math.PI,
+        color: pickWhite()
       }));
+
       let t = 0;
-      (function loop(){
-        ctx.clearRect(0,0,c.width,c.height);
-        bits.forEach(b=>{
-          b.y += b.v; b.x += Math.sin((t+b.a)/10)*b.w; 
-          ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-          ctx.fill(); 
+      (function loop () {
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        bits.forEach(b => {
+          b.y += b.v;
+          b.x += Math.sin((t + b.a) / 10) * b.w;
+
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+          ctx.fillStyle = b.color;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = b.color;
+          ctx.fill();
         });
-        t++; if (t<180) requestAnimationFrame(loop); else c.style.display='none';
+        t++;
+        if (t < 180) requestAnimationFrame(loop);
+        else c.style.display = 'none';
       })();
     }
 
@@ -73,7 +153,7 @@
       confetti();
     }
 
-    // Optional: reset the widget to let people “play again”
+    // reset the widget so people can play again
     function resetWidget() {
       try { turnstile.reset(); } catch (e) {}
       const el = document.getElementById('result');
