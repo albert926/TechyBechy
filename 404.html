@@ -63,17 +63,6 @@
     </style>
 </head>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const reportLink = document.getElementById('reportLink');
-        const currentURL = window.location.href;
-
-        const mailto = `mailto:albert@alberttalkstech.com?subject=Missing%20Chunk%20Alert!&body=Hey%20Tech%20Team%2C%20I%20found%20an%20unloaded%20chunk%20at%20${encodeURIComponent(currentURL)}.%20Can%20you%20check%20it%20out%3F`;
-
-        reportLink.setAttribute('href', mailto);
-    });
-</script>
-
 <body>
     <div class="overlay">
         <h1>🧱 404: Uh Oh! This Chunk Wasn’t Loaded</h1>
@@ -87,5 +76,16 @@
         <p class="tip">Tip: Try not to dig straight down next time.</p>
     </div>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const reportLink = document.getElementById('reportLink');
+        const currentURL = window.location.href;
+
+        const mailto = `mailto:albert@alberttalkstech.com?subject=Missing%20Chunk%20Alert!&body=Hey%20Tech%20Team%2C%20I%20found%20an%20unloaded%20chunk%20at%20${encodeURIComponent(currentURL)}.%20Can%20you%20check%20it%20out%3F`;
+
+        reportLink.setAttribute('href', mailto);
+    });
+</script>
 
 </html>
