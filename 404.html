@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Chunk Not Loaded</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.imgur.com/ehZFhJg.png') center / cover no-repeat;
+      font-family: 'Press Start 2P', monospace;
+      color: #ffffff;
+      text-align: center;
+      background-color: #1e1e1e;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ff00;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 1.5rem;
+      background-color: #2e7d32;
+      color: #fff;
+      text-decoration: none;
+      border: 2px solid #00ff00;
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+      background-color: #1b5e20;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    .tip {
+      font-size: 0.75rem;
+      margin-top: 2rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>🧱 404: Uh Oh! This Chunk Wasn’t Loaded</h1>
+    <p>Looks like you’ve wandered into unloaded territory... This page doesn’t exist — or maybe it just hasn’t rendered yet!</p>
+    
+    <a href="/">🏠 Back to Home Base</a>
+    <a href="#">🧭 Explore Our World</a>
+    <a href="mailto:support@yourdomain.com">💬 Report to the Redstone Engineers</a>
+
+    <p class="tip">Tip: Try not to dig straight down next time.</p>
+  </div>
+</body>
+</html>
