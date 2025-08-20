@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>500 - Redstone Reactor Overload</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.redd.it/rpradeqiu1r31.jpg') center / cover no-repeat;
+      font-family: 'Press Start 2P', monospace;
+      color: #ffffff;
+      text-align: center;
+      background-color: #1e1e1e;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.8);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ff5555;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 1.5rem;
+      background-color: #d32f2f;
+      color: #fff;
+      text-decoration: none;
+      border: 2px solid #ff5555;
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+      background-color: #b71c1c;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff5555;
+    }
+
+    .tip {
+      font-size: 0.75rem;
+      margin-top: 2rem;
+      opacity: 0.7;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.75rem;
+      color: #aaaaaa;
+      opacity: 0.6;
+    }
+
+    footer strong {
+      color: #ff5555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <h1>🧨 500: Critical Server Error</h1>
+    <p>The Redstone reactor overheated. Something went boom behind the scenes — and now even the villagers are panicking.</p>
+
+    <a href="/">🏠 Return to Base</a>
+    <a href="mailto:albert@alberttalkstech.com?subject=500%20Error%20Report&body=The%20Redstone%20reactor%20overheated%20at%20${encodeURIComponent(window.location.href)}.%20Send%20reinforcements!">💬 Alert the Tech Team</a>
+
+    <p class="tip">Tip: Try turning it off and back on. Then pray.</p>
+
+    <footer>From <strong>TechyBechy 500</strong></footer>
+  </div>
+</body>
+
+</html>
