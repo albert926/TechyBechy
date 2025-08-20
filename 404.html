@@ -63,6 +63,17 @@
     </style>
 </head>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const reportLink = document.getElementById('reportLink');
+        const currentURL = window.location.href;
+
+        const mailto = `mailto:albert@alberttalkstech.com?subject=Missing%20Chunk%20Alert!&body=Hey%20Tech%20Team%2C%20I%20found%20an%20unloaded%20chunk%20at%20${encodeURIComponent(currentURL)}.%20Can%20you%20check%20it%20out%3F`;
+
+        reportLink.setAttribute('href', mailto);
+    });
+</script>
+
 <body>
     <div class="overlay">
         <h1>🧱 404: Uh Oh! This Chunk Wasn’t Loaded</h1>
@@ -71,9 +82,7 @@
 
         <a href="/">🏠 Back to Home Base</a>
         <a href="https://map.alberttalkstech.com/#world:140:0:88:1500:0:0:0:0:perspective">🧭 Explore Our World</a>
-        <a
-            href="mailto:albert@alberttalkstech.com?subject=Missing%20Chunk%20Alert!&body=Hey%20Tech%20Team%2C%20I%20stumbled%20on%20a%20404%20page%20that%20didn%E2%80%99t%20load.%20Might%20be%20an%20unloaded%20chunk%20somewhere!%20Can%20you%20check%20it%20out%3F">💬
-            Report to the Redstone Engineers</a>
+        <a id="reportLink" href="#">💬 Report to the Redstone Engineers</a>
 
         <p class="tip">Tip: Try not to dig straight down next time.</p>
     </div>
