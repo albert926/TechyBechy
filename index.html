@@ -72,7 +72,38 @@
   </style>
 </head>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('topNav');
+  const onScroll = () => {
+    if (window.scrollY > 16) { nav.classList.add('nav-solid'); nav.classList.remove('nav-transparent'); }
+    else { nav.classList.add('nav-transparent'); nav.classList.remove('nav-solid'); }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+});
+</script>
+
 <body class="bg-dark text-white">
+  <!-- NAVBAR -->
+<nav id="topNav" class="navbar navbar-expand-lg fixed-top navbar-dark nav-transparent">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">Techy Bechy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navMenu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="/play.html">Play</a></li>
+        <li class="nav-item"><a class="nav-link" href="#service">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#staff">Staff</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://map.alberttalkstech.com" target="_blank" rel="noopener">Map</a></li>
+        <li class="nav-item ms-lg-3"><a class="btn btn-primary btn-sm" href="https://discord.gg/sKnqz6Jke5" target="_blank" rel="noopener">Discord</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   <main>
     <div class="px-4 py-5 my-5 text-center">
       <h1 class="display-5 fw-bold text-white">Welcome To Techy Bechy 🎮</h1>
