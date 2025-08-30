@@ -1,0 +1,48 @@
+/* NAVBAR STYLES */
+body {
+    padding-top: 4rem;
+}
+
+html {
+    scroll-padding-top: 4.5rem;
+}
+
+/* anchors land below fixed nav */
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: .5rem;
+    display: block;
+}
+
+@media (max-width: 991.98px) {
+    .brand-logo {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+#topNav {
+    transition: background-color .25s ease, box-shadow .25s ease;
+    backdrop-filter: saturate(160%) blur(10px);
+}
+
+#topNav.nav-transparent {
+    background: transparent;
+    box-shadow: none;
+}
+
+#topNav.nav-solid {
+    background: rgba(11, 13, 18, .88);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+}
+
+/* optional: nicer link opacity */
+#topNav .nav-link {
+    opacity: .9;
+}
+
+#topNav .nav-link:hover {
+    opacity: 1;
+}
