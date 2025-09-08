@@ -147,6 +147,7 @@ body {
   transition: all 0.3s ease;
   margin-top: 2rem;
   text-align: center;
+  z-index: 10;
 }
 
 .fancy-button:hover {
