@@ -1,58 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Techy Bechy News</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #0f0f0f;
-      color: white;
-      padding: 2rem;
-    }
-    h1 {
-      color: #88c0d0;
-    }
-    .post {
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 1rem;
-    }
-    .post a {
-      color: #8fbcbb;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-    .post .date {
-      font-size: 0.9rem;
-      color: #999;
-    }
-  </style>
-</head>
-<body>
-  <h1>Latest Posts from Techy Bechy</h1>
-  <div id="feed">Loading...</div>
 
-  <script>
-    fetch("posts.json")
-      .then((res) => res.json())
-      .then((posts) => {
-        const feed = document.getElementById("feed");
-        feed.innerHTML = "";
-        posts.forEach(post => {
-          const postDiv = document.createElement("div");
-          postDiv.className = "post";
-          postDiv.innerHTML = `
+<head>
+    <meta charset="UTF-8" />
+    <title>Techy Bechy News</title>
+    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #0f0f0f;
+            color: white;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #88c0d0;
+        }
+
+        .post {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        .post a {
+            color: #8fbcbb;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .post .date {
+            font-size: 0.9rem;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav id="topNav" class="navbar navbar-expand-lg fixed-top navbar-dark nav-transparent">
+        <div class="container align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="/" aria-label="Techy Bechy Home">
+                <img src="server.png" alt="Techy Bechy" class="brand-logo me-2">
+                <span class="fw-bold d-none d-sm-inline">Techy Bechy</span>
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navMenu" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <!-- 1: Features -->
+                    <li class="nav-item"><a class="nav-link" href="#service">Features</a></li>
+                    <!-- 2: Staff -->
+                    <li class="nav-item"><a class="nav-link" href="#staff">Staff</a></li>
+                    <!-- 3: Map -->
+                    <li class="nav-item"><a class="nav-link" href="https://map.alberttalkstech.com" target="_blank"
+                            rel="noopener">Map</a></li>
+                    <!-- 4: Discord -->
+                    <li class="nav-item"><a class="nav-link" href="https://discord.gg/sKnqz6Jke5" target="_blank"
+                            rel="noopener">Discord</a></li>
+                    <!-- 5: Play -->
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary btn-lg px-4 fw-bold btn-cta" href="/play.html">Play</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <h1>Latest Posts from Techy Bechy</h1>
+    <div id="feed">Loading...</div>
+
+    <script>
+        fetch("posts.json")
+            .then((res) => res.json())
+            .then((posts) => {
+                const feed = document.getElementById("feed");
+                feed.innerHTML = "";
+                posts.forEach(post => {
+                    const postDiv = document.createElement("div");
+                    postDiv.className = "post";
+                    postDiv.innerHTML = `
             <a href="${post.link}">${post.title}</a><br>
             <span class="date">${new Date(post.date).toLocaleDateString()}</span>
           `;
-          feed.appendChild(postDiv);
-        });
-      })
-      .catch(err => {
-        document.getElementById("feed").innerText = "Failed to load blog posts.";
-        console.error("Error loading posts:", err);
-      });
-  </script>
+                    feed.appendChild(postDiv);
+                });
+            })
+            .catch(err => {
+                document.getElementById("feed").innerText = "Failed to load blog posts.";
+                console.error("Error loading posts:", err);
+            });
+    </script>
 </body>
+
 </html>
