@@ -103,13 +103,31 @@
             .then((posts) => {
                 const feed = document.getElementById("feed");
                 feed.innerHTML = "";
+
+                // Sort newest → oldest
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
                 posts.forEach(post => {
                     const postDiv = document.createElement("div");
                     postDiv.className = "post";
+
+                    // Format with date + time
+                    const formattedDate = new Date(post.date).toLocaleString("en-GB", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                        timeZone: "Asia/Hong_Kong",
+                        timeZoneName: "short"
+                    });
+
+
                     postDiv.innerHTML = `
-            <a href="${post.link}">${post.title}</a><br>
-            <span class="date">${new Date(post.date).toLocaleDateString()}</span>
-          `;
+                    <a href="${post.link}">${post.title}</a><br>
+                    <span class="date">${formattedDate}</span>
+                `;
                     feed.appendChild(postDiv);
                 });
             })
@@ -118,6 +136,7 @@
                 console.error("Error loading posts:", err);
             });
     </script>
+
 </body>
 
 </html>
