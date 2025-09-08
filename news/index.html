@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Techy Bechy News</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0f0f0f;
+      color: white;
+      padding: 2rem;
+    }
+    h1 {
+      color: #88c0d0;
+    }
+    .post {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+    .post a {
+      color: #8fbcbb;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .post .date {
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Latest Posts from Techy Bechy</h1>
+  <div id="feed">Loading...</div>
+
+  <script>
+    fetch("posts.json")
+      .then((res) => res.json())
+      .then((posts) => {
+        const feed = document.getElementById("feed");
+        feed.innerHTML = "";
+        posts.forEach(post => {
+          const postDiv = document.createElement("div");
+          postDiv.className = "post";
+          postDiv.innerHTML = `
+            <a href="${post.link}">${post.title}</a><br>
+            <span class="date">${new Date(post.date).toLocaleDateString()}</span>
+          `;
+          feed.appendChild(postDiv);
+        });
+      })
+      .catch(err => {
+        document.getElementById("feed").innerText = "Failed to load blog posts.";
+        console.error("Error loading posts:", err);
+      });
+  </script>
+</body>
+</html>
