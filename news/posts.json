@@ -3,5 +3,10 @@
     "title": "Welcome to Techy Bechy!",
     "link": "posts/welcome.html",
     "date": "2025-09-08"
+  },
+  {
+    "title": "Custom Commands on Techy Bechy!",
+    "link": "posts/custom-commands.html",
+    "date": "2025-09-08"
   }
 ]
