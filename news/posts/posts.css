@@ -120,6 +120,12 @@ body {
   }
 }
 
+#content {
+    position: relative;
+    z-index: 10;
+    overflow-y: auto;
+}
+
 .centered-content {
   position: relative;
   z-index: 1;
