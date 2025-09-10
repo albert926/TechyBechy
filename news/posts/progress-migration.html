@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Migration Progress – Techy Bechy</title>
+    <link rel="stylesheet" href="posts.css">
+    <link rel="stylesheet" href="../header.css">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .fancy-button {
+            display: inline-block;
+            margin: 2rem auto;
+        }
+
+        .progress-container {
+            background: #222;
+            border: 1px solid #555;
+            border-radius: 10px;
+            width: 100%;
+            height: 24px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 5%;
+            /* ✅ update for progress */
+            transition: width 0.5s;
+        }
+
+        /* ✅ Colors based on progress */
+        .low {
+            background: linear-gradient(90deg, #ff4d4d, #cc0000);
+            /* red */
+        }
+
+        .medium {
+            background: linear-gradient(90deg, #ffd633, #e6b800);
+            /* yellow */
+        }
+
+        .high {
+            background: linear-gradient(90deg, #4dff4d, #009933);
+            /* green */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <main>
+        <h1 style="color: #72c4ff;">⚡ Migration Progress Tracker ⚡</h1>
+        <p>We’re in the middle of the big Techy Bechy server migration! This page will be updated regularly with
+            progress reports and a running list of new features and fixes.</p>
+
+        <h2 style="margin-top: 1.5rem;">📊 Current Progress</h2>
+        <div class="progress-container">
+            <div class="progress-bar low"></div>
+        </div>
+        <p><b>5% Complete</b> — core migration and initial setup are underway.</p>
+
+        <h2 style="margin-top: 1.5rem;">✅ Completed Steps</h2>
+        <ul>
+            <li>Server files backed up safely</li>
+        </ul>
+
+        <h2 style="margin-top: 1.5rem;">🚧 In Progress</h2>
+        <ul>
+            <li>Purchasing Server</li>
+        </ul>
+
+        <h2 style="margin-top: 1.5rem;">🔮 Next Steps</h2>
+        <ul>
+            <li>New host environment prepared</li>
+            <li>Core plugins tested (LuckPerms, Essentials, etc.)</li>
+            <li>Configuring higher player limits</li>
+            <li>Testing new grief prevention tools</li>
+            <li>Migrating BlueMap to updated version</li>
+            <li>Stress test server with community</li>
+            <li>Polish spawn area & add QoL features</li>
+            <li>Announce reopening date 🎉</li>
+        </ul>
+
+        <p style="color:#888; margin-top: 2rem;">— Techy Bechy 🌀</p>
+
+        <!-- ✅ Back button at bottom -->
+        <a href="https://techybechy.alberttalkstech.com/news/" class="fancy-button">
+            📰 Back
+        </a>
+    </main>
+</body>
+
+</html>
