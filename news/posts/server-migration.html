@@ -11,27 +11,34 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            overflow-y: auto;
-            /* allow scrolling */
+            overflow-y: auto; /* allow scrolling */
             position: relative;
         }
 
         .lines {
             position: fixed;
-            /* keep animated lines in background */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            /* push behind content */
+            z-index: -1;       /* background */
             pointer-events: none;
-            /* don’t block scroll/clicks */
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .fancy-button {
+            display: inline-block;
+            margin: 2rem auto;
         }
     </style>
 </head>
 
-<body class="centered-content">
+<body>
     <div class="lines">
         <div class="line"></div>
         <div class="line"></div>
@@ -45,12 +52,11 @@
         <div class="line"></div>
     </div>
 
-    <main style="padding: 2rem; max-width: 768px; margin: 0 auto;">
+    <main>
         <h1 style="color: #72c4ff;">🚧 Scheduled Downtime & Major Upgrades 🚧</h1>
         <p>The Techy Bechy server will be going offline for a period of time between <b>September 20th</b> and the
             <b>first few days of October</b>. This downtime is necessary as we migrate the entire server to a new setup
-            and prepare for several exciting improvements.
-        </p>
+            and prepare for several exciting improvements.</p>
 
         <p>This isn’t just routine maintenance — it’s a big move that will affect almost every part of the server. While
             things are offline, you won’t be able to connect, but rest assured the work being done behind the scenes
@@ -90,17 +96,14 @@
             <li>🔜 Expand documentation/wiki for easier onboarding of new players</li>
         </ul>
 
-        <p>We’ll update this roadmap as progress continues — check back often for status reports and completion updates!
-        </p>
+        <p>We’ll update this roadmap as progress continues — check back often for status reports and completion updates!</p>
 
         <p style="color:#888; margin-top: 2rem;">— Techy Bechy 🌀</p>
+
+        <!-- ✅ Back button at bottom, simple like your base -->
+        <a href="https://techybechy.alberttalkstech.com/news/" class="fancy-button">
+            📰 Back
+        </a>
     </main>
-
-
-    <a href="https://techybechy.alberttalkstech.com/news/" class="fancy-button">
-        📰 Back
-    </a>
-
 </body>
-
 </html>
