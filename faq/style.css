@@ -1,0 +1,13 @@
+  .accordion-button {
+    color: #fff !important;
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: #1f1f1f !important;
+    color: #72c4ff !important; /* your Techy Bechy blue accent */
+  }
+  .accordion-body {
+    color: #e0e0e0 !important;
+  }
+  .accordion-item {
+    border: 1px solid #444;
+  }
