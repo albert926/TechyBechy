@@ -17,10 +17,18 @@ html {
 }
 
 @media (max-width: 991.98px) {
-    .brand-logo {
-        width: 32px;
-        height: 32px;
-    }
+  /* shrink brand logo on mobile */
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navbar-nav .btn-cta {
+    display: block;
+    margin: 0.5rem auto;
+    text-align: center;
+    width: fit-content;
+  }
 }
 
 #topNav {
@@ -46,3 +54,4 @@ html {
 #topNav .nav-link:hover {
     opacity: 1;
 }
+

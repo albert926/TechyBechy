@@ -227,7 +227,6 @@ a.link-light:hover {
   text-decoration: underline;
 }
 
-/* Modal text (Bootstrap modal uses light theme by default) */
 .modal-content {
   color: #111;
 }
