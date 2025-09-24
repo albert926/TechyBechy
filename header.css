@@ -23,6 +23,13 @@ html {
     height: 32px;
   }
 
+  .widget {
+    text-align: center;
+    width: fit-content;
+    margin: 0.5rem auto;
+    display: block;
+  }
+
   .navbar-nav .btn-cta {
     display: block;
     margin: 0.5rem auto;
