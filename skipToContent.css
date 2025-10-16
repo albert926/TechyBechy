@@ -1,0 +1,22 @@
+.skip-to-content {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: #00ffae;
+  color: #000;
+  padding: 0.75em 1.25em;
+  border-radius: 0.5em;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 3000;
+  transform: translateY(-200%);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+  opacity: 1;
+}
+html {
+  scroll-behavior: smooth;
+}
